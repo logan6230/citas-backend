@@ -17,76 +17,78 @@ class EspecialidadController {
 			res.status(500).json(error);
 		}
 	}
-	// async crearPaciente(req: Request, res: Response) {
-	// 	try {
-	// 		const { cedula, nombre, apellido, fecha, telefono } = req.body;
-	// 		//TO DO: Verificar la validez la consistencia de los datos
+	async crearEspecialidad(req: Request, res: Response) {
+		try {
+			const { nombre } = req.body;
 
-	// 		const fechaNacimiento = new Date(fecha);
-	// 		const paciente = await this.prismaClient.paciente.create({
-	// 			data: {
-	// 				cedula,
-	// 				nombre,
-	// 				apellido,
-	// 				fechaNacimiento,
-	// 				telefono,
-	// 			},
-	// 		});
-	// 		res.json(paciente);
-	// 	} catch (e: any) {
-	// 		res.status(400);
-	// 		res.json({ error: e.message });
-	// 		console.log(e.message);
+			const lastEspecialidad = await this.prismaClient.especialidad.findFirst({
+				select: {
+					idEspecialidad: true
+				},
+				orderBy: {
+					idEspecialidad: 'desc'
+				}
+			});
 
-	// 	}
-	// }
+			const nextIdEspecialidad = (lastEspecialidad?.idEspecialidad || 0) + 1;
+
+			const especialidad = await this.prismaClient.especialidad.create({
+				data: {
+					idEspecialidad: nextIdEspecialidad,
+					nombre
+				},
+			});
+			res.json(especialidad);
+		} catch (e: any) {
+			res.status(400);
+			res.json({ error: e.message });
+			console.log(e.message);
+
+		}
+	}
 
 	// //TO DO: Crear los métodos para actualizar
-	// async actualizarPaciente(req: Request, res: Response) {
-	// 	try {
-	// 		const { cedula, nombre, apellido, fecha, telefono } = req.body;
-	// 		//TO DO: Verificar la validez la consistencia de los datos
-	// 		const fechaNacimiento = new Date(fecha);
-	// 		const paciente = await this.prismaClient.paciente.update({
-	// 			where: {
-	// 				cedula: cedula,
-	// 			},
-	// 			data: {
-	// 				nombre,
-	// 				apellido,
-	// 				fechaNacimiento,
-	// 				telefono,
-	// 			},
-	// 		});
-	// 		res.json(paciente);
-	// 	} catch (e: any) {
-	// 		res.status(400);
-	// 		res.json({ error: e.message });
-	// 		console.log(e.message);
+	async actualizarEspecialidad(req: Request, res: Response) {
+		try {
+			const { idEspecialidad, nombre } = req.body;
+			//TO DO: Verificar la validez la consistencia de los datos
 
-	// 	}
-	// }
+			const especialidad = await this.prismaClient.especialidad.update({
+				where: {
+					idEspecialidad: Number(idEspecialidad),
+				},
+				data: {
+					nombre
+				},
+			});
+			res.json(especialidad);
+		} catch (e: any) {
+			res.status(400);
+			res.json({ error: e.message });
+			console.log(e.message);
 
-	// //TO DO: Crear los método eliminar un paciente
-	// async eliminarPaciente(req: Request, res: Response) {
-	// 	try {
-	// 		const { cedula } = req.params;
-	// 		//TO DO: Verificar la validez la consistencia de los datos
+		}
+	}
 
-	// 		const cedulaNumber = Number(cedula);
-	// 		const paciente = await this.prismaClient.paciente.delete({
-	// 			where: {
-	// 				cedula: cedulaNumber,
-	// 			},
-	// 		});
-	// 		res.json(paciente);
-	// 	} catch (e: any) {
-	// 		res.status(400);
-	// 		res.json({ error: e.message });
-	// 		console.log(e.message);
+	
+	async eliminarEspecialidad(req: Request, res: Response) {
+		try {
+			const { idEspecialidad } = req.params;
+			//TO DO: Verificar la validez la consistencia de los datos
 
-	// 	}
-	// }
+			const especialidad = await this.prismaClient.especialidad.delete({
+				where: {
+					idEspecialidad: Number(idEspecialidad),
+				},
+			});
+			res.json(especialidad);
+		} catch (e: any) {
+			res.status(400);
+			res.json({ error: e.message });
+			console.log(e.message);
+
+		}
+	}
 
 
 }

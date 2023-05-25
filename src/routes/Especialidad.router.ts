@@ -20,18 +20,18 @@ class EspecialidadRouter {
 				this.especialidadController.obtenerEspecialidad(req, res);
 			});
 
-		// this.router.post('/crear_especialidad',
-		// 	(req: Request, res: Response) => { 
-		// 		this.especialidadController.crearEspecialidad(req, res);
-		// 	});
-		// this.router.put('/actualizar_especialidad',
-		// 	(req: Request, res: Response) => {
-		// 		this.especialidadController.actualizarEspecialidad(req, res);
-		// 	});
-		// this.router.delete('/eliminar_especialidad/:nombre',
-		// 	(req: Request, res: Response) => {
-		// 		this.especialidadController.eliminarEspecialidad(req, res);
-		// 	});
+		this.router.post('/crearEspecialidad',
+			(req: Request, res: Response) => { 
+				this.especialidadController.crearEspecialidad(req, res);
+			});
+		this.router.put('/actualizarEspecialidad',
+			(req: Request, res: Response) => {
+				this.especialidadController.actualizarEspecialidad(req, res);
+			});
+		this.router.delete('/especialidad/:idEspecialidad',
+			(req: Request, res: Response) => {
+				this.especialidadController.eliminarEspecialidad(req, res);
+			});
 	}
 
 }

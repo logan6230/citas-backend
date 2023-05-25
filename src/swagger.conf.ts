@@ -3,6 +3,7 @@ import swaggerJsdoc from 'swagger-jsdoc';
 import { Paciente } from './schemas/Pacientes.schemas';
 import { Medico } from './schemas/Medico.schemas';
 import { Cita } from './schemas/Cita.schemas';
+import { Especialidad } from './schemas/Especialidad.schemas';
 
 
 export const swaggerOption = {
@@ -24,7 +25,8 @@ export const swaggerOption = {
 			schemas: {
 				Paciente,
 				Medico,
-				Cita
+				Cita,
+				Especialidad
 
 
 

@@ -5,7 +5,7 @@ export default {
      *  /formulario/{formulario}:
      *    get:
      *      tags:
-     *        - formulario
+     *        - Formulario
      *      description: Retorna el formulario solicitado
      *      parameters:
      *        - name: formulario 

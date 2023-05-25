@@ -5,7 +5,7 @@ export default {
      *  /crearPaciente/:
      *    post:
      *      tags:
-     *        - paciente
+     *        - Paciente
      *      summary: Add a new  patient
      *      description: Add a new  patiente
      *      operationId: addPaciente
@@ -34,7 +34,7 @@ export default {
      *  /pacientes:
      *    get:
      *      tags:
-     *        - paciente
+     *        - Paciente
      *      summary: Retrieve patients
      *      description: Retrieve all registered patients.
      *      responses:
@@ -49,7 +49,7 @@ export default {
      *  /actualizarPaciente:
      *    put:
      *      tags:
-     *        - paciente
+     *        - Paciente
      *      summary: Update patient          
      *      description: Update an existing patient   
      *      operationId: updatePaciente
@@ -79,7 +79,7 @@ export default {
      *  /eliminarPaciente/{cedula}:
      *    delete:
      *      tags:
-     *        - paciente
+     *        - Paciente
      *      summary: Delete patient
      *      description: Delete an existing patient from the database.
      *      operationId: deletePaciente

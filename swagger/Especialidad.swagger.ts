@@ -3,40 +3,40 @@ export default {
      * @swagger
      *
      *paths:
-     *  /medicos:
+     *  /especialidades:
      *    get:
      *      tags:
-     *        - Medico
-     *      summary: Retrieve doctors
-     *      description: Retrieve all registered doctors.
+     *        - Especialidad
+     *      summary: Retrieve specialties
+     *      description: Retrieve all registered specialties.
      *      responses:
      *        '200':
-     *          description:  Success response with the list of registered doctors
+     *          description:  Success response with the list of registered specialties
      *          content:
      *            application/json:
      *              schema:
      *                type: array
      *                items:
-     *                  $ref: '#/components/schemas/Medico'
-     *  /crearMedico:
+     *                  $ref: '#/components/schemas/Especialidad'
+     *  /crearEspecialidad:
      *    post:
      *      tags:
-     *        - Medico
-     *      summary: Add a new  doctor
+     *        - Especialidad
+     *      summary: Add a new  speciality
      *      description: Retrieve all available specialties.
-     *      operationId: addDoctor
+     *      operationId: addSpeciality
      *      requestBody:
-     *        description: Create a new doctor in the database
+     *        description: Create a new speciality in the database
      *        content:
      *          application/json:
      *            schema:
-     *              $ref: '#/components/schemas/Medico'
+     *              $ref: '#/components/schemas/Especialidad'
      *          application/xml:
      *            schema:
-     *              $ref: '#/components/schemas/Medico'
+     *              $ref: '#/components/schemas/Especialidad'
      *          application/x-www-form-urlencoded:
      *            schema:
-     *              $ref: '#/components/schemas/Medico'
+     *              $ref: '#/components/schemas/Especialidad'
      *        required: true
      *      responses:
      *        '200':
@@ -44,30 +44,30 @@ export default {
      *          content:
      *            application/json:
      *              schema:
-     *                $ref: '#/components/schemas/Medico'
+     *                $ref: '#/components/schemas/Especialidad'
      *        '400':
      *          description: Invalid input
      * 
      * 
-     *  /actualizarMedico:
+     *  /actualizarEspecialidad:
      *    put:
      *      tags:
-     *        - Medico
-     *      summary: Retrieve doctors
-     *      description: Retrieve all existing doctors.
-     *      operationId: updateMedico
+     *        - Especialidad
+     *      summary: Retrieve specialities
+     *      description: Retrieve all existing specialities.
+     *      operationId: updateEspecialidad
      *      requestBody:
-     *        description: Update a existing doctor in the database
+     *        description: Update an existing speciality in the database
      *        content:
      *          application/json:
      *            schema:
-     *              $ref: '#/components/schemas/Medico'
+     *              $ref: '#/components/schemas/Especialidad'
      *          application/xml:
      *            schema:
-     *              $ref: '#/components/schemas/Medico'
+     *              $ref: '#/components/schemas/Especialidad'
      *          application/x-www-form-urlencoded:
      *            schema:
-     *              $ref: '#/components/schemas/Medico'
+     *              $ref: '#/components/schemas/Especialidad'
      *        required: true
      *      responses:
      *        '200':
@@ -75,20 +75,20 @@ export default {
      *          content:
      *            application/json:
      *              schema:
-     *                $ref: '#/components/schemas/Medico'
+     *                $ref: '#/components/schemas/Especialidad'
      *        '400':
      *          description: Invalid input
-     *  /medico/{tarjetaProfesional}:
+     *  /especialidad/{idEspecialidad}:
      *    delete:
      *      tags:
-     *        - Medico
-     *      summary: Delete doctor
-     *      description: Delete an existing doctor
-     *      operationId: deleteDoctor
+     *        - Especialidad
+     *      summary: Delete speciality
+     *      description: Delete a specialty by entering its idEspeciality.
+     *      operationId: deleteSpeciality
      *      parameters:
-     *        - name: tarjetaProfesional
+     *        - name: idEspecialidad
      *          in: path
-     *          description: Delete a doctor by entering their professional card number.
+     *          description: Delete a speciality by entering their ID.
      *          required: true
      *          schema:
      *            type: integer
