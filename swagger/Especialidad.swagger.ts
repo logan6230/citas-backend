@@ -18,6 +18,8 @@ export default {
      *                type: array
      *                items:
      *                  $ref: '#/components/schemas/Especialidad'
+     *      security:
+     *        - bearerAuth: []
      *  /crearEspecialidad:
      *    post:
      *      tags:
@@ -47,7 +49,8 @@ export default {
      *                $ref: '#/components/schemas/Especialidad'
      *        '400':
      *          description: Invalid input
-     * 
+     *      security:
+     *        - bearerAuth: []
      * 
      *  /actualizarEspecialidad:
      *    put:
@@ -78,6 +81,8 @@ export default {
      *                $ref: '#/components/schemas/Especialidad'
      *        '400':
      *          description: Invalid input
+     *      security:
+     *        - bearerAuth: []
      *  /especialidad/{idEspecialidad}:
      *    delete:
      *      tags:
@@ -96,6 +101,8 @@ export default {
      *      responses:
      *        '400':
      *         description: Bad request error
+     *      security:
+     *        - bearerAuth: []
      * 
      *          
      * 

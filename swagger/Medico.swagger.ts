@@ -18,6 +18,8 @@ export default {
      *                type: array
      *                items:
      *                  $ref: '#/components/schemas/Medico'
+     *      security:
+     *        - bearerAuth: []
      *  /crearMedico:
      *    post:
      *      tags:
@@ -47,7 +49,8 @@ export default {
      *                $ref: '#/components/schemas/Medico'
      *        '400':
      *          description: Invalid input
-     * 
+     *      security:
+     *        - bearerAuth: [] 
      * 
      *  /actualizarMedico:
      *    put:
@@ -78,6 +81,8 @@ export default {
      *                $ref: '#/components/schemas/Medico'
      *        '400':
      *          description: Invalid input
+     *      security:
+     *        - bearerAuth: []
      *  /medico/{tarjetaProfesional}:
      *    delete:
      *      tags:
@@ -96,6 +101,8 @@ export default {
      *      responses:
      *        '400':
      *         description: Bad request error
+     *      security:
+     *        - bearerAuth: []
      * 
      *          
      * 

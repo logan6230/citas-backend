@@ -28,7 +28,8 @@ export default {
      *           application/json:
      *        400:
      *          description: invalid status value
-
+     *      security:
+     *        - bearerAuth: []
      * 
      *
      *           
