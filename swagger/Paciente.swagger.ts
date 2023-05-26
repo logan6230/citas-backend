@@ -31,6 +31,8 @@ export default {
      *                $ref: '#/components/schemas/Paciente'
      *        '400':
      *          description: Bad request error
+     *      security:
+     *        - bearerAuth: []
      *  /pacientes:
      *    get:
      *      tags:
@@ -46,6 +48,8 @@ export default {
      *                type: array
      *                items:
      *                  $ref: '#/components/schemas/Paciente'
+     *      security:
+     *        - bearerAuth: []
      *  /actualizarPaciente:
      *    put:
      *      tags:
@@ -76,6 +80,8 @@ export default {
      *          description: Not found error
      *        '500': 
      *         description: Internal server error
+     *      security:
+     *        - bearerAuth: []
      *  /eliminarPaciente/{cedula}:
      *    delete:
      *      tags:
@@ -94,6 +100,8 @@ export default {
      *      responses:
      *        '400':
      *         description: Bad request error
+     *      security:
+     *        - bearerAuth: []
      *      
      * 
      * 

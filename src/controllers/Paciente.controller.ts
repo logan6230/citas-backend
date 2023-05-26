@@ -34,13 +34,13 @@ class PacienteController {
 		try {
 			const { cedula, nombre, apellido, fechaNacimiento, telefono } = req.body;
 			//TO DO: Verificar la validez la consistencia de los datos
-						
+
 			const paciente = await this.prismaClient.paciente.create({
 				data: {
-					cedula:parseInt(cedula),
+					cedula: parseInt(cedula),
 					nombre,
 					apellido,
-					fechaNacimiento : new Date(fechaNacimiento),
+					fechaNacimiento: new Date(fechaNacimiento),
 					telefono,
 				},
 			});
@@ -57,11 +57,8 @@ class PacienteController {
 	async actualizarPaciente(req: Request, res: Response) {
 		try {
 			const { cedula, nombre, apellido, fechaNacimiento, telefono } = req.body;
-			
+
 			//TO DO: Verificar la validez la consistencia de los datos
-			console.log(fechaNacimiento);
-			
-			
 			const paciente = await this.prismaClient.paciente.update({
 				where: {
 					cedula: parseInt(cedula),
@@ -69,14 +66,14 @@ class PacienteController {
 				data: {
 					nombre,
 					apellido,
-					fechaNacimiento : new Date(fechaNacimiento),
+					fechaNacimiento: new Date(fechaNacimiento),
 					telefono,
 				},
 			});
 			res.json(paciente);
 		} catch (e: any) {
 			res.status(400);
-			res.json({ error: e.message });			
+			res.json({ error: e.message });
 
 		}
 	}
@@ -94,7 +91,7 @@ class PacienteController {
 				},
 			});
 			//regresar el status 204
-			
+
 			res.json(paciente);
 		} catch (e: any) {
 			res.status(400);

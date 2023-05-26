@@ -18,6 +18,8 @@ export default {
      *                type: array
      *                items:
      *                  $ref: '#/components/schemas/Cita'
+     *      security:
+     *        - bearerAuth: []
      *  /crearCita:
      *    post:
      *      tags:
@@ -47,7 +49,8 @@ export default {
      *                $ref: '#/components/schemas/Cita'
      *        '400':
      *          description: Bad request error
-     * 
+     *      security:
+     *        - bearerAuth: [] 
      *  /actualizarCita:
      *    put:
      *      tags:
@@ -77,6 +80,8 @@ export default {
      *                $ref: '#/components/schemas/Cita'
      *        '400':
      *          description: Bad request error
+     *      security:
+     *        - bearerAuth: []
      *  /cita/{idCita}:
      *    delete:
      *      tags:
@@ -95,6 +100,8 @@ export default {
      *      responses:
      *        '400':
      *         description: Not found error
+     *      security:
+     *        - bearerAuth: []
      * 
      *          
      * 
